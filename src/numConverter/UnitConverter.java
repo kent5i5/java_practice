@@ -20,43 +20,58 @@ public class UnitConverter {
 	 * @param args
 	 */
 	public static void main(String[] args) {
-		
-		
-//		System.out.print("Enter first number- \n");  
-//		Scanner sc= new Scanner(System.in);
-		
+
 		UnitConverter uc = new UnitConverter();
 		
 		try {
-			//uc.convert(sc.nextInt());
-			 // Schedule a job for the event-dispatching thread:
-	         // creating and showing this application's GUI.
-			
 			uc.renderUI();
 		} catch(Exception e) {
 			System.out.print("Exit");  
 		}
 	}
 	
-	private static double collectQuantity(String unit1, String unit2) {
-		return 1.0;
+//	private static double collectQuantity(String unit1, String unit2) {
+//		System.out.print("Enter your number- \r\n"); 
+//		Scanner quantity = new Scanner(System.in);
+//		return quantity.nextDouble() ;
+//	}
+	
+//	public double convertCelsiusToFarenheit(double qty) { 
+//		return ( qty * 1.8) + 32;
+//	}
+	
+	/**
+	 * @param qty the number user input
+	 */
+	public double convertTeaspoonsToTablespoons(double qty) { 
+		return ( qty * 1.8) + 32;
 	}
 	
-	public double convertCelsiusToFarenheit(double qty) { 
-		return 1.1111;
+	/**
+	 * @param qty the number user input
+	 */
+	public double convertTeaspoonsToCups(double qty) { 
+		return ( qty / 48);
 	}
 	
-	private void convert(int input) throws Exception{
-		
-		int inputValue =  input;
-		
-		//(18 * 1.8) + 32
+	/**
+	 * @param qty the number user input
+	 */
+	public double convertFeetToMeters(double qty) { 
+		return ( qty / 3.281) ;
+	}
+	
+	/**
+	 * @param qty the number user input
+	 */
+	public double convertMilesToKilometers(double qty) { 
+		return ( qty * 1.609) ;
+	}
 
-		double outputValue = (inputValue * 1.8) + 32 ;
-		System.out.print("Here's your answer- " + outputValue +"\r\n");
-	}
-	
-	public void renderUI() throws Exception {
+	/**
+	 * Method that render the command line interface
+	 */
+	private void renderUI() throws Exception {
 		int menuSelection = 1;
 		
 		//menuSelection != /*last menu option */
@@ -71,26 +86,28 @@ public class UnitConverter {
 			switch(menuSelection) {
 				
 				case 1:	volumeConversionSubmenu();
-					
 						break;
 				case 2: distanceConversionSubmenu();
 						break;
 				case 3: System.out.print("3\r\n");
 						break;
-				case 4: System.out.print(" program closed \r\n");
+				case 4: System.out.print(" program closed \r\n\n");
 						break;
-				default: System.out.print( " please choose option 1, 2, or 3 \r\n"); 
+				default: System.out.print( " please choose option 1, 2, or 3 \r\n\n"); 
 			}
 		}
 		
 	}
 
-	
-	private void distanceConversionSubmenu() throws Exception {
+	/**
+	 * Volume Conversion Sub-menu of the main user interface
+	 */
+	private void volumeConversionSubmenu() throws Exception {
 		int subMenuSelection = 1;
+		double answer = 0;
 		while (subMenuSelection != 3) {
-			System.out.print("1. Feet to Meters \n"
-				+ "2. Miles to Kilometers  \n" 
+			System.out.print("1. Teaspoons to Tablespoons \n"
+				+ "2. Teaspoons to Cups  \n" 
 				+ "3. exit\n" );
 			Scanner sc= new Scanner(System.in);
 			subMenuSelection= sc.nextInt();
@@ -98,13 +115,15 @@ public class UnitConverter {
 			
 			case 1:	System.out.print("Enter your number- \r\n"); 
 					Scanner sc2  = new Scanner(System.in);
-					this.convert(sc2.nextInt());
+					answer = convertTeaspoonsToTablespoons(sc2.nextDouble());
+					System.out.print("Here's your answer- " + answer +"\r\n\n"); 
 					break;
 			case 2: System.out.print("Enter your number- \r\n"); 
 					Scanner sc3 = new Scanner(System.in);
-					this.convert(sc3.nextInt());
+					answer = convertTeaspoonsToCups(sc3.nextDouble());
+					System.out.print("Here's your answer- " + answer +"\r\n\n"); 
 					break;
-			case 3: System.out.print(" program closed\r\n");
+			case 3: System.out.print(" program closed\r\n\n");
 					break;
 
 			default: 
@@ -114,26 +133,32 @@ public class UnitConverter {
 		}
 	}
 	
-	private void volumeConversionSubmenu() throws Exception {
+	/**
+	 * Distance Conversion Sub-menu of the main user interface
+	 */
+	private void distanceConversionSubmenu() throws Exception {
 		int subMenuSelection = 1;
+		double answer = 0;
 		while (subMenuSelection != 3) {
 			System.out.print("1. Feet to Meters \n"
 					+ "2. Miles to Kilometers  \n" 
 					+ "3. exit \n" );
-			//System.out.print("Enter first number- \r\n"); 
+
 			Scanner sc= new Scanner(System.in);
 			subMenuSelection= sc.nextInt();
 			switch(subMenuSelection) {
 			
 				case 1:	System.out.print("Enter your number- \r\n"); 
 						Scanner sc2  = new Scanner(System.in);
-						this.convert(sc2.nextInt());
+						answer =  this.convertFeetToMeters(sc2.nextDouble());
+						System.out.print("Here's your answer- " + answer +"\r\n\n"); 
 						break;
 				case 2: System.out.print("Enter your number- \r\n"); 
 						Scanner sc3 = new Scanner(System.in);
-						this.convert(sc3.nextInt());
+						answer =  this.convertMilesToKilometers(sc3.nextDouble());
+						System.out.print("Here's your answer- " + answer +"\r\n\n"); 
 						break;
-				case 3: System.out.print(" program closed\r\n");
+				case 3: System.out.print(" program closed\r\n\n");
 						break;
 	
 				default:
