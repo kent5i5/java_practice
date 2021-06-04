@@ -44,7 +44,7 @@ public class UnitConverter {
 	 * @param qty the number user input
 	 */
 	public double convertTeaspoonsToTablespoons(double qty) { 
-		return ( qty * 1.8) + 32;
+		return ( qty / 3);
 	}
 	
 	/**
