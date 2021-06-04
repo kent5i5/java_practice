@@ -94,6 +94,7 @@ public class UnitConverter {
 				case 4: System.out.print(" program closed \r\n\n");
 						break;
 				default: System.out.print( " please choose option 1, 2, or 3 \r\n\n"); 
+						break;
 			}
 		}
 		
@@ -126,7 +127,7 @@ public class UnitConverter {
 			case 3: System.out.print(" program closed\r\n\n");
 					break;
 
-			default: 
+			default: break;
 		}
 			
 			
@@ -161,7 +162,7 @@ public class UnitConverter {
 				case 3: System.out.print(" program closed\r\n\n");
 						break;
 	
-				default:
+				default:break;
 			}
 		}
 	}
