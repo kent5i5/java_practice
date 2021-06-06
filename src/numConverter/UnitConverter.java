@@ -4,7 +4,7 @@
 package numConverter;
 import java.util.*;
 /**
- * @author ocean
+ * @author kenneth eng
  *
  */
 public class UnitConverter {
@@ -82,6 +82,7 @@ public class UnitConverter {
 					+ "2. Distance conversions  \n" 
 					+ "3. exit \n" );
 			Scanner sc= new Scanner(System.in);
+			
 			menuSelection = sc.nextInt();
 			switch(menuSelection) {
 				
@@ -89,11 +90,9 @@ public class UnitConverter {
 						break;
 				case 2: distanceConversionSubmenu();
 						break;
-				case 3: System.out.print("3\r\n");
+				case 3: System.out.print("! program closed \r\n\n");
 						break;
-				case 4: System.out.print(" program closed \r\n\n");
-						break;
-				default: System.out.print( " please choose option 1, 2, or 3 \r\n\n"); 
+				default: System.out.print( "! please choose option 1, 2, or 3 \r\n\n"); 
 						break;
 			}
 		}
@@ -116,13 +115,23 @@ public class UnitConverter {
 			
 			case 1:	System.out.print("Enter your number- \r\n"); 
 					Scanner sc2  = new Scanner(System.in);
-					answer = convertTeaspoonsToTablespoons(sc2.nextDouble());
-					System.out.print("Here's your answer- " + answer +"\r\n\n"); 
+					if (sc2.hasNextDouble()) {
+						answer =  this.convertFeetToMeters(sc2.nextDouble());
+						System.out.print("Here's your answer- " + answer +"\r\n\n"); 
+					} else {
+						System.out.print("! Please enter a number" + "\r\n\n"); 
+						break;
+					}
 					break;
 			case 2: System.out.print("Enter your number- \r\n"); 
 					Scanner sc3 = new Scanner(System.in);
-					answer = convertTeaspoonsToCups(sc3.nextDouble());
-					System.out.print("Here's your answer- " + answer +"\r\n\n"); 
+					if (sc3.hasNextDouble()) {
+						answer =  this.convertFeetToMeters(sc3.nextDouble());
+						System.out.print("Here's your answer- " + answer +"\r\n\n"); 
+					} else {
+						System.out.print("! Please enter a number" + "\r\n\n"); 
+						break;
+					}
 					break;
 			case 3: System.out.print(" program closed\r\n\n");
 					break;
@@ -151,13 +160,23 @@ public class UnitConverter {
 			
 				case 1:	System.out.print("Enter your number- \r\n"); 
 						Scanner sc2  = new Scanner(System.in);
-						answer =  this.convertFeetToMeters(sc2.nextDouble());
-						System.out.print("Here's your answer- " + answer +"\r\n\n"); 
+						if (sc2.hasNextDouble()) {
+							answer =  this.convertFeetToMeters(sc2.nextDouble());
+							System.out.print("Here's your answer- " + answer +"\r\n\n"); 
+						} else {
+							System.out.print("! Please enter a number" + "\r\n\n"); 
+							break;
+						}
 						break;
 				case 2: System.out.print("Enter your number- \r\n"); 
 						Scanner sc3 = new Scanner(System.in);
-						answer =  this.convertMilesToKilometers(sc3.nextDouble());
-						System.out.print("Here's your answer- " + answer +"\r\n\n"); 
+						if (sc3.hasNextDouble()) {
+							answer =  this.convertFeetToMeters(sc3.nextDouble());
+							System.out.print("Here's your answer- " + answer +"\r\n\n"); 
+						} else {
+							System.out.print("! Please enter a number" + "\r\n\n"); 
+							break;
+						}
 						break;
 				case 3: System.out.print(" program closed\r\n\n");
 						break;
@@ -165,6 +184,14 @@ public class UnitConverter {
 				default:break;
 			}
 		}
+	}
+	
+	private double inputValidation(Scanner sc) {
+		if (sc.hasNextDouble()) {
+			return sc.nextDouble(); 
+		} 
+		
+		return 0; 
 	}
 
 }
