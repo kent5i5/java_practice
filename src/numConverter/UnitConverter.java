@@ -8,12 +8,12 @@ import java.util.*;
  *
  */
 public class UnitConverter {
-	
+	public String name;
 	/**
 	 * Constructor
 	 */
-	UnitConverter(){
-		
+	public UnitConverter(String name){
+		this.name = name;
 	}
 
 	/**
@@ -21,8 +21,8 @@ public class UnitConverter {
 	 */
 	public static void main(String[] args) {
 
-		UnitConverter uc = new UnitConverter();
-		
+		UnitConverter uc = new UnitConverter("general");
+		System.out.print("This is a " + uc.name + " converter. \n\n");
 		try {
 			uc.renderUI();
 		} catch(Exception e) {
@@ -186,12 +186,4 @@ public class UnitConverter {
 		}
 	}
 	
-	private double inputValidation(Scanner sc) {
-		if (sc.hasNextDouble()) {
-			return sc.nextDouble(); 
-		} 
-		
-		return 0; 
-	}
-
 }
