@@ -20,6 +20,7 @@ public class migratoryBirdsProblem {
 	int[] birdcage = new int[7];
 	int arr[];
 
+	
 	public static void main(String[] args) {
 		try {
 			migratoryBirdsProblem mbp =  new migratoryBirdsProblem();
